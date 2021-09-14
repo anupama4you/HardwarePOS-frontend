@@ -1,0 +1,24 @@
+//
+//	General
+//
+
+@mixin child-space($space: $spacer) {
+	> *:not(:last-child) {
+		@include margin-right($space);
+	}
+}
+
+@mixin child-space-bottom($space: $spacer) {
+	> *:not(:last-child) {
+		@include margin-bottom($space);
+	}
+}
+
+// For only Safari
+@mixin only-safari() {
+	@media not all and (min-resolution: 0.001dpcm) {
+		@supports (-webkit-appearance: none) {
+			@content;
+		}
+	}
+}
